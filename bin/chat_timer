@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'thor'
+require_relative '../lib/chat_timer/timer'
+
+class CLI < Thor
+  desc "scan", "Path to your Skype sqlite database file. \nCheckout ~/Library/Application\ Support/Skype/USERNAME/main.db on Mac"
+  option :db, required: true
+
+  def scan
+    ChatTimer::Timer.find_marks(options[:db])
+  end
+end
+
+CLI.start
