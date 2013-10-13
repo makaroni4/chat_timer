@@ -42,5 +42,7 @@ Also you correct command timestamp by passing hour and minute to command:
 
 ## Installation
 
+~~~
 git clone https://github.com/makaroni4/chat_timer.git
 rake install
+~~~
