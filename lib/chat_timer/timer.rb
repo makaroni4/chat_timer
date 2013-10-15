@@ -22,6 +22,7 @@ module ChatTimer
 
             rows.each do |row|
               chatname, author, body_xml, timestamp, chatname = row
+
               timestamp = Time.at(timestamp)
               timestamp = fix_timestamp(timestamp, body_xml, word)
               message = parse_message(body_xml, word)
@@ -46,7 +47,7 @@ module ChatTimer
             timestamp_data.sort { |a, b| a[:timestamp] <=> b[:timestamp] }.each do |row|
               puts [
                 "    ",
-                row[:timestamp].strftime("%I:%M %m/%d/%Y"),
+                row[:timestamp].strftime("%k:%M %m/%d/%Y"),
                 row[:word].ljust(7, ' '),
                 row[:message]
               ].join(' ')
